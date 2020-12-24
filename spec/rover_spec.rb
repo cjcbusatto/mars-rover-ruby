@@ -12,7 +12,7 @@ describe Rover, '#run' do
 
       rover.run(:M)
 
-      expect(rover.get_current_position).to have_attributes(x: 1, y: 3, direction: :N)
+      expect(rover.position).to have_attributes(x: 1, y: 3, direction: :N)
     end
     it 'moves to south' do
       start_position = Position.new 1, 2, :S
@@ -22,7 +22,7 @@ describe Rover, '#run' do
 
       rover.run(:M)
 
-      expect(rover.get_current_position).to have_attributes(x: 1, y: 1, direction: :S)
+      expect(rover.position).to have_attributes(x: 1, y: 1, direction: :S)
     end
     it 'moves to east' do
       start_position = Position.new 1, 2, :W
@@ -32,7 +32,7 @@ describe Rover, '#run' do
 
       rover.run(:M)
 
-      expect(rover.get_current_position).to have_attributes(x: 0, y: 2, direction: :W)
+      expect(rover.position).to have_attributes(x: 0, y: 2, direction: :W)
     end
     it 'moves to west' do
       start_position = Position.new 1, 2, :E
@@ -42,7 +42,7 @@ describe Rover, '#run' do
 
       rover.run(:M)
 
-      expect(rover.get_current_position).to have_attributes(x: 2, y: 2, direction: :E)
+      expect(rover.position).to have_attributes(x: 2, y: 2, direction: :E)
     end
 
     it 'runtime error' do
@@ -64,7 +64,7 @@ describe Rover, '#run' do
 
       rover.run(:L)
 
-      expect(rover.get_current_position).to have_attributes(x: 1, y: 2, direction: :W)
+      expect(rover.position).to have_attributes(x: 1, y: 2, direction: :W)
     end
   end
 
@@ -78,7 +78,7 @@ describe Rover, '#run' do
       rover.run(:R)
 
       expected_position = Position.new 1, 2, :E
-      expect(rover.get_current_position).to have_attributes(x: 1, y: 2, direction: :E)
+      expect(rover.position).to have_attributes(x: 1, y: 2, direction: :E)
     end
   end
 end

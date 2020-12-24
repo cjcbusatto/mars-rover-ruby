@@ -11,10 +11,10 @@ describe Plateau do
   end
 
   it 'should give no errors when is in the plateau borders' do
-    p = Plateau.new(5, 5)
+    plateau = Plateau.new(5, 5)
 
-    pos = Position.new(5, 5, :N)
+    position = Position.new(5, 5, :N)
 
-    expect { plateau.in(position) }.not_to raise_error(RuntimeError)
+    expect(plateau.in(position)).to be true
   end
 end

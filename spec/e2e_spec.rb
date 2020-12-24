@@ -12,7 +12,7 @@ describe "End to End Testing" do
       
       commands.each { |c| rover.run(c) }
 
-      expect(rover.get_current_position).to have_attributes(x: 1, y: 3, direction: :N)
+      expect(rover.position).to have_attributes(x: 1, y: 3, direction: :N)
     end
   
     it 'given a set of commands, it should match the end position' do
@@ -23,7 +23,7 @@ describe "End to End Testing" do
         commands = [:M, :M, :R, :M, :M, :R, :M, :R, :R, :M]
         commands.each { |c| rover.run(c) }
   
-        expect(rover.get_current_position).to have_attributes(x: 5, y: 1, direction: :E)
+        expect(rover.position).to have_attributes(x: 5, y: 1, direction: :E)
       end
   end
   
