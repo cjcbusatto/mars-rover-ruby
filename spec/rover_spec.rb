@@ -44,6 +44,15 @@ describe Rover, '#run' do
 
       expect(rover.get_current_position).to have_attributes(x: 2, y: 2, direction: :E)
     end
+
+    it 'runtime error' do
+      start_position = Position.new 5, 5, :N
+      plateau = Plateau.new(5, 5)
+
+      rover = Rover.new(plateau, start_position)
+
+      expect { rover.run(:M) }.to output("Rescued: #<RuntimeError: Outside Plateau borders!>\n").to_stdout 
+    end
   end
 
   context 'when the command os L' do

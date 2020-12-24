@@ -8,7 +8,8 @@ describe "End to End Testing" do
       position = Position.new(1, 2, :N)
       rover = Rover.new(plateau, position)
   
-      commands = "LMLMLMLMM".chars.map { |c| c.to_sym }
+      commands = [:L, :M, :L, :M, :L, :M, :L, :M, :M]
+      
       commands.each { |c| rover.run(c) }
 
       expect(rover.get_current_position).to have_attributes(x: 1, y: 3, direction: :N)
@@ -19,7 +20,7 @@ describe "End to End Testing" do
         position = Position.new(3, 3, :E)
         rover = Rover.new(plateau, position)
     
-        commands = "MMRMMRMRRM".chars.map { |c| c.to_sym }
+        commands = [:M, :M, :R, :M, :M, :R, :M, :R, :R, :M]
         commands.each { |c| rover.run(c) }
   
         expect(rover.get_current_position).to have_attributes(x: 5, y: 1, direction: :E)

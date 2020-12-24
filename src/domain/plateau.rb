@@ -5,8 +5,6 @@ class Plateau
     end
 
     def in(position)
-        unless (0..@x).include?(position.x) && (0..@y).include?(position.y)
-            raise RuntimeError, "Outside Plateu Plateau borders!"
-        end
+        raise RuntimeError, "Outside Plateau borders!" unless (0..@x).include?(position.x) && (0..@y).include?(position.y)
     end
 end
