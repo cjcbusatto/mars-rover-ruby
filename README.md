@@ -1,5 +1,14 @@
 # Mars Rover Problem
 
 ## Requirements 
-* Ruby 
-## Install:
+* ruby 2.7
+
+## Install
+```
+$ bundle install
+```
+
+## Testing
+```
+$ rspec
+```
