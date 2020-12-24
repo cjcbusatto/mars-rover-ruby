@@ -1,6 +1,6 @@
 require '../src/rover'
-require '../src/position'
-require '../src/plateau'
+require '../src/domain/position'
+require '../src/domain/plateau'
 
 describe Rover, '#run' do
   context 'when the command is M' do
