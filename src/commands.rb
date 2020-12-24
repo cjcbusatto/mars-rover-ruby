@@ -70,14 +70,3 @@ class RotateLeftCommand < Command
         command == :L
     end
 end
-
-
-class UnknownCommand < Command
-    def execute(position)
-        raise "Error: UnknownCommand. Shutting down the rover."
-    end
-
-    def check(command, direction)
-        ([:M, :L, :R].include? :command == false) && ([:N, :S, :W, :E].include? direction == false)
-    end
-end

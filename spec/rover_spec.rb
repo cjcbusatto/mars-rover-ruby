@@ -1,11 +1,14 @@
 require '../src/rover'
 require '../src/position'
+require '../src/plateau'
 
 describe Rover, '#run' do
   context 'when the command is M' do
     it 'moves to north' do
       start_position = Position.new 1, 2, :N
-      rover = Rover.new start_position
+      plateau = Plateau.new(5, 5)
+
+      rover = Rover.new(plateau, start_position)
 
       rover.run(:M)
 
@@ -13,7 +16,9 @@ describe Rover, '#run' do
     end
     it 'moves to south' do
       start_position = Position.new 1, 2, :S
-      rover = Rover.new start_position
+      plateau = Plateau.new(5, 5)
+
+      rover = Rover.new(plateau, start_position)
 
       rover.run(:M)
 
@@ -21,7 +26,9 @@ describe Rover, '#run' do
     end
     it 'moves to east' do
       start_position = Position.new 1, 2, :W
-      rover = Rover.new start_position
+      plateau = Plateau.new(5, 5)
+
+      rover = Rover.new(plateau, start_position)
 
       rover.run(:M)
 
@@ -29,7 +36,9 @@ describe Rover, '#run' do
     end
     it 'moves to west' do
       start_position = Position.new 1, 2, :E
-      rover = Rover.new start_position
+      plateau = Plateau.new(5, 5)
+
+      rover = Rover.new(plateau, start_position)
 
       rover.run(:M)
 
@@ -40,7 +49,9 @@ describe Rover, '#run' do
   context 'when the command os L' do
     it 'rotates left the rover' do
       start_position = Position.new 1, 2, :N
-      rover = Rover.new start_position
+      plateau = Plateau.new(5, 5)
+
+      rover = Rover.new(plateau, start_position)
 
       rover.run(:L)
 
@@ -51,7 +62,9 @@ describe Rover, '#run' do
   context 'when the command os R' do
     it 'rotates right the rover' do
       start_position = Position.new 1, 2, :N
-      rover = Rover.new(start_position)
+      plateau = Plateau.new(5, 5)
+
+      rover = Rover.new(plateau, start_position)
 
       rover.run(:R)
 

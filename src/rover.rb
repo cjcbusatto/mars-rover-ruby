@@ -1,7 +1,8 @@
 require_relative 'commands'
 
 class Rover
-    def initialize(start_position)
+    def initialize(plateau, start_position)
+        @plateau = plateau
         @positions = [start_position]
     end
 
@@ -10,9 +11,12 @@ class Rover
         
         command = find_command(input_command, current_position)
     
-        new_position = command.execute(current_position)
-
-        @positions.push(new_position)
+        begin
+            new_position = command.execute(current_position)
+            @positions.push(new_position)
+        rescue RuntimeError => e
+            print_exception(e, true)
+        end
     end
 
     def find_command(input_command, current_position)
@@ -23,7 +27,6 @@ class Rover
             EastCommand.new, 
             RotateRightCommand.new, 
             RotateLeftCommand.new,
-            UnknownCommand.new,
         ]
 
         commands.find { |command| command.check(input_command, current_position.direction) }
