@@ -13,6 +13,7 @@ class Rover
     
         begin
             new_position = command.execute(@position)
+            
             @position = new_position if @plateau.in(new_position)
         rescue RuntimeError => e
             puts "Rescued: #{e.inspect}" 
