@@ -51,7 +51,7 @@ describe Rover, '#run' do
   context 'when the command os R' do
     it 'rotates right the rover' do
       start_position = Position.new 1, 2, :N
-      rover = Rover.new start_position
+      rover = Rover.new(start_position)
 
       rover.run(:R)
 
