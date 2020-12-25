@@ -51,7 +51,7 @@ describe Rover, '#run' do
 
       rover = Rover.new(plateau, start_position)
 
-      expect { rover.run(:M) }.to output("Rescued: #<RuntimeError: Outside Plateau borders!>\n").to_stdout 
+      expect { rover.run(:M) }.to output("Rescued: #<RuntimeError: Outside Plateau borders!>\n").to_stdout
     end
   end
 
