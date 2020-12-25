@@ -1,11 +1,11 @@
 require '../src/rover'
-require '../src/domain/position'
+require '../src/domain/rover_position'
 require '../src/domain/plateau'
 
 describe "End to End Testing" do
   it 'given a set of commands, it should match the end position' do
     plateau = Plateau.new(5, 5)
-    position = Position.new(1, 2, :N)
+    position = RoverPosition.new(1, 2, :N)
     rover = Rover.new(plateau, position)
 
     commands = [:L, :M, :L, :M, :L, :M, :L, :M, :M]
@@ -17,7 +17,7 @@ describe "End to End Testing" do
 
   it 'given a set of commands, it should match the end position' do
     plateau = Plateau.new(5, 5)
-    position = Position.new(3, 3, :E)
+    position = RoverPosition.new(3, 3, :E)
     rover = Rover.new(plateau, position)
 
     commands = [:M, :M, :R, :M, :M, :R, :M, :R, :R, :M]

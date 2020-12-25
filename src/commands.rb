@@ -10,7 +10,7 @@ end
 
 class NorthCommand < Command
   def execute(position)
-    Position.new(position.x, position.y + 1, position.direction)
+    RoverPosition.new(position.x, position.y + 1, position.direction)
   end
 
   def check(command, direction)
@@ -20,7 +20,7 @@ end
 
 class SouthCommand < Command
   def execute(position)
-    Position.new(position.x, position.y - 1, position.direction)
+    RoverPosition.new(position.x, position.y - 1, position.direction)
   end
 
   def check(command, direction)
@@ -30,7 +30,7 @@ end
 
 class WestCommand < Command
   def execute(position)
-    Position.new(position.x - 1, position.y, position.direction)
+    RoverPosition.new(position.x - 1, position.y, position.direction)
   end
 
   def check(command, direction)
@@ -40,7 +40,7 @@ end
 
 class EastCommand < Command
   def execute(position)
-    Position.new(position.x + 1, position.y, position.direction)
+    RoverPosition.new(position.x + 1, position.y, position.direction)
   end
 
   def check(command, direction)
@@ -51,7 +51,7 @@ end
 class RotateRightCommand < Command
   def execute(position)
     rotate_map = { :N => :E, :E => :S, :S => :W, :W => :N }
-    Position.new(position.x, position.y, rotate_map[position.direction])
+    RoverPosition.new(position.x, position.y, rotate_map[position.direction])
   end
 
   def check(command, _)
@@ -63,7 +63,7 @@ class RotateLeftCommand < Command
   def execute(position)
     rotate_map = { :N => :W, :W => :S, :S => :E, :E => :N }
 
-    Position.new(position.x, position.y, rotate_map[position.direction])
+    RoverPosition.new(position.x, position.y, rotate_map[position.direction])
   end
 
   def check(command, _)

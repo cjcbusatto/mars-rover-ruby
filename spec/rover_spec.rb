@@ -1,11 +1,11 @@
 require '../src/rover'
-require '../src/domain/position'
+require '../src/domain/rover_position'
 require '../src/domain/plateau'
 
 describe Rover, '#run' do
   context 'when the command is M' do
     it 'moves to north' do
-      start_position = Position.new 1, 2, :N
+      start_position = RoverPosition.new 1, 2, :N
       plateau = Plateau.new(5, 5)
 
       rover = Rover.new(plateau, start_position)
@@ -15,7 +15,7 @@ describe Rover, '#run' do
       expect(rover.position).to have_attributes(x: 1, y: 3, direction: :N)
     end
     it 'moves to south' do
-      start_position = Position.new 1, 2, :S
+      start_position = RoverPosition.new 1, 2, :S
       plateau = Plateau.new(5, 5)
 
       rover = Rover.new(plateau, start_position)
@@ -25,7 +25,7 @@ describe Rover, '#run' do
       expect(rover.position).to have_attributes(x: 1, y: 1, direction: :S)
     end
     it 'moves to east' do
-      start_position = Position.new 1, 2, :W
+      start_position = RoverPosition.new 1, 2, :W
       plateau = Plateau.new(5, 5)
 
       rover = Rover.new(plateau, start_position)
@@ -35,7 +35,7 @@ describe Rover, '#run' do
       expect(rover.position).to have_attributes(x: 0, y: 2, direction: :W)
     end
     it 'moves to west' do
-      start_position = Position.new 1, 2, :E
+      start_position = RoverPosition.new 1, 2, :E
       plateau = Plateau.new(5, 5)
 
       rover = Rover.new(plateau, start_position)
@@ -46,7 +46,7 @@ describe Rover, '#run' do
     end
 
     it 'runtime error' do
-      start_position = Position.new 5, 5, :N
+      start_position = RoverPosition.new 5, 5, :N
       plateau = Plateau.new(5, 5)
 
       rover = Rover.new(plateau, start_position)
@@ -57,7 +57,7 @@ describe Rover, '#run' do
 
   context 'when the command os L' do
     it 'rotates left the rover' do
-      start_position = Position.new 1, 2, :N
+      start_position = RoverPosition.new 1, 2, :N
       plateau = Plateau.new(5, 5)
 
       rover = Rover.new(plateau, start_position)
@@ -70,14 +70,14 @@ describe Rover, '#run' do
 
   context 'when the command os R' do
     it 'rotates right the rover' do
-      start_position = Position.new 1, 2, :N
+      start_position = RoverPosition.new 1, 2, :N
       plateau = Plateau.new(5, 5)
 
       rover = Rover.new(plateau, start_position)
 
       rover.run(:R)
 
-      expected_position = Position.new 1, 2, :E
+      expected_position = RoverPosition.new 1, 2, :E
       expect(rover.position).to have_attributes(x: 1, y: 2, direction: :E)
     end
   end
